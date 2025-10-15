@@ -20,7 +20,7 @@ export default function Page() {
 
   return (
     <main>
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroSection />
       <Blog />  
       <section className="">
