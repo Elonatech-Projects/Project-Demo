@@ -1,0 +1,30 @@
+.marquee{
+    overflow: hidden;
+    width: 100%;
+    background: #fafafa;
+    padding: 12px 0;
+}
+.inner {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    animation: scroll var(--duration, 20s) linear infinite;
+    white-space: nowrap;
+}
+.item{
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    } to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee:hover .inner {
+    animation-play-state: paused;
+}
