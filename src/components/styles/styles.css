@@ -1,0 +1,54 @@
+.body-padding{
+    padding: 10px 80px;
+}
+
+.nav-link-custom:hover {
+    color: #ef4444; /* Tailwind's red-500 hex value */
+    cursor: pointer;
+}
+
+.nav-social{
+    /* background-color: ; */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    /* padding: 5px; */
+}
+.nav-icons{
+    height: 12px;
+    width: 12px;
+}
+.btn-navlink:hover{
+    background-color: #0c215f;
+}
+.left-icons{
+    /* background-color: gray; */
+    height: 14px;
+    width: 14px;
+}
+.nav-header{
+    background: linear-gradient(to right, #d90000, #0033cc)
+}
+
+
+
+.btn-navlink{
+    padding: 10px;
+}
+
+.social-right a{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.herosection-image{
+    border-radius: 20px 0 0 45px ;
+}
+
+.btn-red{
+    background-color: red;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+}
