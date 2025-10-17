@@ -3,7 +3,7 @@
 import Navbar from '../components/Navbar2';
 import HeroSection from '../components/HeroSection';
 // import About from '../components/about';
-// import Services from '../components/services';
+import Services from '../components/Services';
 import ContactForm from '../components/ContactForm';
 import Marquee from '@/components/marque';
 import TechnologyStack from '@/components/TechnologyStack';
@@ -22,6 +22,7 @@ export default function Page() {
     <main>
       {/* <Navbar /> */}
       <HeroSection />
+      <Services/>
       <Blog />  
       <section className="">
         <TechnologyStack />
