@@ -3,7 +3,7 @@ import { ChevronRight, Send } from "lucide-react";
 import "./styles/styles.css";
 export default function CaseStudies() {
   return (
-    <section className="case-studies py-[10vh]">
+    <section className="case-studies py-[10vh] my-[5vh] bg-white">
         <div className="flex flex-col bottom-section body-padding gap-4">
             {/* Header section */}
             <div className="header-section flex justify-between">
