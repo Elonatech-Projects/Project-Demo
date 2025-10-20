@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md relative z-50">
       {/* Top Bar */}
-      <section className="nav-header">
+      <section className="nav-header py-[1vh]">
         <div className="flex justify-between py-3 body-padding">
           {/* Social Links */}
           <div className="flex nav-social-links">
@@ -49,10 +49,10 @@ export default function Navbar() {
 
       {/* Right Side */}
       <div className="max-w-full flex justify-between items-center text-[#0a4da9] body-padding">
-              {/* Logo */}
-              <div className="text-2xl font-bold text-red-600">
-                <Image src="/images/Speedlink-Hi-Tech-Solutions-Logo-223x93.webp" height={300} width={250} alt="Logo"/>
-              </div>
+        {/* Logo */}
+        <div className="text-2xl font-bold text-red-600">
+          <Image src="/images/Speedlink-Hi-Tech-Solutions-Logo-223x93.webp" height={300} width={250} alt="Logo"/>
+        </div>
 
         {/* Nav Links */}
         <div className="flex items-center gap-2">
@@ -60,108 +60,104 @@ export default function Navbar() {
           <button className="md:hidden p-2 mr-2" onClick={toggleMobile} aria-label="Toggle menu">
             <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0a4da9" strokeWidth="2" strokeLinecap="round"/></svg>
           </button>
+
           {/* make this wrapper positioned so dropdowns can be centered relative to it */}
           <div className="relative">
             <ul className="hidden md:flex space-x-3 ">
-            <li className="hover:cursor-pointer nav-link-custom ">
-              <Link href="/">Home</Link>
-            </li>
-            {/* ABOUT US DROPDOWN */}
-            <li className="cursor-pointer nav-link-custom" onMouseEnter={() => handleMouseEnter("about")} onMouseLeave={handleMouseLeave}>
-              <button className="hover:text-red-500 flex items-center nav-link-custom gap-1">
-                About Us
-                <span>▼</span>
-              </button>
-              {activeMenu === "about" && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-72 py-4 transition-all opacity-100 bg-white">
-                  {aboutLinks.map((item) => (
-                    <Link key={item.title} href={item.href} className="block px-4 py-2 hover:bg-gray-100">
-                      <div className="font-medium text-gray-800">
-                        {item.title}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {item.subtext}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </li>
-            {/* SERVICES MEGA MENU */}
-            <li className="nav-link-custom" onMouseEnter={() => handleMouseEnter("services")} onMouseLeave={handleMouseLeave}>
-              <button className="hover:text-red-500 nav-link-custom flex items-center gap-1">
-                Services
-                <span>▼</span>
-              </button>
-              {activeMenu === "services" && (
-                <>
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-md w-[92vw] max-w-[1100px] py-6 px-6">
-                    <div className="grid grid-cols-3 gap-6">
-                      {serviceCategories.map((category) => (
-                        <div key={category.title}>
-                          <h3 className="font-semibold text-gray-800 mb-2">
-                            {category.title}
-                          </h3>
-                          <ul className="space-y-1">
-                            {category.links.map((link) => (
-                              <li key={link.text}>
-                                <Link
-                                  href={link.href}
-                                  className="text-sm text-gray-600 hover:text-red-500"
-                                >
-                                  {link.text}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
+              <li className="hover:cursor-pointer nav-link-custom ">
+                <Link href="/">Home</Link>
+              </li>
+              {/* ABOUT US DROPDOWN */}
+              <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter("about")} onMouseLeave={handleMouseLeave}>
+                <button className="hover:text-red-500 flex items-center nav-link-custom gap-1">
+                  About Us
+                  <span>▼</span>
+                </button>
+                {activeMenu === "about" && (
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-72 py-4 transition-all duration-300 ease-out bg-white opacity-100 translate-y-2 animate-slideDown
+                    "
+                  >
+                    {aboutLinks.map((item) => (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        className="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        <div className="font-medium text-gray-800">{item.title}</div>
+                        <div className="text-sm text-gray-500">{item.subtext}</div>
+                      </Link>
+                    ))}
                   </div>
-                </>
-              )}
-            </li>
-            {/* Case Study dropdown */}
-            <li className="cursor-pointer nav-link-custom" onMouseEnter={() => handleMouseEnter('case')} onMouseLeave={handleMouseLeave}>
-              <button className="hover:text-red-500 flex items-center gap-1">Case Study <span>▼</span></button>
-              {activeMenu === 'case' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
-                  {caseStudyLinks.map((it) => (
-                    <Link key={it.title} href={it.href} className="block px-4 py-2 hover:bg-gray-100">{it.title}</Link>
-                  ))}
-                </div>
-              )}
-            </li>
-            {/* Products dropdown */}
-            <li className="cursor-pointer nav-link-custom" onMouseEnter={() => handleMouseEnter('products')} onMouseLeave={handleMouseLeave}>
-              <button className="hover:text-red-500 flex items-center gap-1">Products <span>▼</span></button>
-              {activeMenu === 'products' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
-                  {productsLinks.map((it) => (
-                    <Link key={it.title} href={it.href} className="block px-4 py-2 hover:bg-gray-100">{it.title}</Link>
-                  ))}
-                </div>
-              )}
-            </li>
-            {/* Resources dropdown */}
-            <li className="cursor-pointer nav-link-custom" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
-              <button className="hover:text-red-500 flex items-center gap-1">Resources <span>▼</span></button>
-              {activeMenu === 'resources' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
-                  {resourcesLinks.map((it) => (
-                    <Link key={it.title} href={it.href} className="block px-4 py-2 hover:bg-gray-100">{it.title}</Link>
-                  ))}
-                </div>
-              )}
-            </li>
-            <li className="nav-link-custom">
-              <Link href="/case-study">Case Study</Link>
-            </li>
-            <li className="nav-link-custom">
-              <Link href="/products">Products</Link>
-            </li>
-
-              
+                )}
+              </li>
+              {/* SERVICES MEGA MENU */}
+              <li className="nav-link-custom" onMouseEnter={() => handleMouseEnter("services")} onMouseLeave={handleMouseLeave}>
+                <button className="hover:text-red-500 nav-link-custom flex items-center gap-1">
+                  Services
+                  <span>▼</span>
+                </button>
+                {activeMenu === "services" && (
+                  <>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-md w-[92vw] max-w-[1100px] py-6 px-6">
+                      <div className="grid grid-cols-3 gap-6">
+                        {serviceCategories.map((category) => (
+                          <div key={category.title}>
+                            <h3 className="font-semibold text-gray-800 mb-2">
+                              {category.title}
+                            </h3>
+                            <ul className="space-y-1">
+                              {category.links.map((link) => (
+                                <li key={link.text}>
+                                  <Link
+                                    href={link.href}
+                                    className="text-sm text-gray-600 hover:text-red-500"
+                                  >
+                                    {link.text}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </li>
+              {/* Case Study dropdown */}
+              <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter('case')} onMouseLeave={handleMouseLeave}>
+                <button className="hover:text-red-500 flex items-center gap-1">Case Study <span>▼</span></button>
+                {activeMenu === 'case' && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
+                    {caseStudyLinks.map((it) => (
+                      <Link key={it.title} href={it.href} className="block px-4 py-2 hover:bg-gray-100">{it.title}</Link>
+                    ))}
+                  </div>
+                )}
+              </li>
+              {/* Products dropdown */}
+              <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter('products')} onMouseLeave={handleMouseLeave}>
+                <button className="hover:text-red-500 flex items-center gap-1">Products <span>▼</span></button>
+                {activeMenu === 'products' && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
+                    {productsLinks.map((it) => (
+                      <Link key={it.title} href={it.href} className="block px-4 py-2 hover:bg-gray-100">{it.title}</Link>
+                    ))}
+                  </div>
+                )}
+              </li>
+              {/* Resources dropdown */}
+              <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
+                <button className="hover:text-red-500 flex items-center gap-1">Resources <span>▼</span></button>
+                {activeMenu === 'resources' && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
+                    {resourcesLinks.map((it) => (
+                      <Link key={it.title} href={it.href} className="block px-4 py-2 hover:bg-gray-100">{it.title}</Link>
+                    ))}
+                  </div>
+                )}
+              </li>         
             </ul>
           </div>
           <div className="flex gap-2 items-center">

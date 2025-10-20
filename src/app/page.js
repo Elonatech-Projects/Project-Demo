@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar2';
 import HeroSection from '../components/HeroSection';
 // import About from '../components/about';
 import Services from '../components/Services';
+import Products from '@/components/Products';
+import CaseStudies from '@/components/CaseStudies';
 import ContactForm from '../components/ContactForm';
 import Marquee from '@/components/marque';
 import TechnologyStack from '@/components/TechnologyStack';
@@ -23,12 +25,11 @@ export default function Page() {
       {/* <Navbar /> */}
       <HeroSection />
       <Services/>
+      <Products />
+      <CaseStudies />
       <Blog />  
       <section className="">
         <TechnologyStack />
-      </section>
-      <section className="">
-        <Marquee images={myImages} durationSeconds={10} height={90} />
       </section>
       {/* <ContactForm /> */}
     </main>

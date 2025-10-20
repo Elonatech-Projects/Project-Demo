@@ -84,20 +84,18 @@ export default function Services() {
 
             {/* Interactive Services Section */}
             <div className="flex flex-col lg:flex-row gap-8 mt-10">
+
               {/* LEFT: Service List */}
               <div className="flex flex-col gap-4 w-full lg:w-1/3">
                 {services.map((service) => (
-                  <div
-                    key={service.id}
-                    onMouseEnter={() => setActiveService(service)}
-                    className={`cursor-pointer px-4 py-3 border-2 rounded-md transition-all duration-300 ease-in-out
+                  <div key={service.id} onMouseEnter={() => setActiveService(service)} className={`cursor-pointer px-4 py-3 border-2 rounded-md transition-all duration-300 ease-in-out service-lists
                       ${
                         activeService.id === service.id
                           ? "bg-red-600 text-white border-red-600"
                           : "bg-white text-black border-gray-200 hover:bg-red-100"
                       }`}
                   >
-                    <h3 className="font-semibold">{service.title}</h3>
+                    <h3 className="">{service.title}</h3>
                   </div>
                 ))}
               </div>
