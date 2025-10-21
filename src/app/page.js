@@ -1,6 +1,6 @@
 // src/app/page.js
 
-import Navbar from '../components/Navbar2';
+// import Navbar from '../components/Navbar2';
 import HeroSection from '../components/HeroSection';
 // import About from '../components/about';
 import Services from '../components/Services';

@@ -5,9 +5,31 @@
     padding: 0 10%;
 }
 
-.nav-link-custom:hover {
-    color: #ef4444; /* Tailwind's red-500 hex value */
-    cursor: pointer;
+.nav-section{
+    .nav-links-section{
+        .nav-link-custom {
+            position: relative;
+            /* display: inline-block; */
+            /* padding: 10px 20px; */
+            cursor: pointer;
+            /* background-color: black; */
+        }  
+        .nav-link-custom::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background-color: red;
+            transition: width 0.4s ease;
+            }
+
+            /* animate it on hover */
+            .nav-link-custom:hover::before {
+            width: 100%;
+            }
+    }    
 }
 
 .nav-social{
@@ -293,9 +315,10 @@
             width: 50%;
         }
     }
+    
     .hero-section{
         .card{
-            width: 50%;
+            /* width: 50%; */
             background-color: #f8dfe4;
             align-items: center;
             border-radius: 10px;
@@ -354,3 +377,14 @@
     line-height: 28.9px;
     color: rgb(255, 255, 255);
 }
+.secondary-button:hover{
+    background-color: blue;
+    cursor: pointer;
+    transition-duration: 1000ms;
+}
+
+/* .products-wrapper{
+    .bottom-section{
+
+    }
+} */

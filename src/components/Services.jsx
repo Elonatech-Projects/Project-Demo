@@ -66,7 +66,7 @@ export default function Services() {
   const [activeService, setActiveService] = useState(services[0]);
 
   return (
-    <section className="services relative">
+    <section className="services relative bg-red-400">
       <div className="flex flex-col relative">
         {/* Top Part */}
         <section className="services-top relative body-padding flex flex-col service-background-imag bg-cover bg-center bg-no-repeat"
