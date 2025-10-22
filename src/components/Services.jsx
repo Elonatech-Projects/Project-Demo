@@ -14,18 +14,19 @@ export default function Services() {
         "Web design and development",
       ],
       image: "/images/IT-services.jpg", // 🖼️ Replace with your image path
-      bgGradient: "from-red-700 to-purple-900",
+      bgGradient: "from-pink-700 to-purple-900",
     },
     {
       id: "network-services",
       title: "Network Services",
       description: [
-        "LAN/WAN Setup",
-        "Network Monitoring",
-        "Firewall Configuration",
+        "Routing and Switching",
+        "VOIP - Voice over Internet Protocol",
+        "Fibre to the home",
+        "ISP - Internet Service Provider",
       ],
       image: "/images/Network-Services.jpg", // 🖼️ Replace with your image path
-      bgGradient: "from-blue-700 to-blue-900",
+      bgGradient: "from-pink-700 to-purple-900",
     },
     {
       id: "technical-security",
@@ -36,8 +37,20 @@ export default function Services() {
         "GPS Tracking System",
         "Access Control & Time-Attendance Solutions",
       ],
-      // image: "/images/security.jpg", // 🖼️ Replace with your image
-      bgGradient: "from-gray-800 to-black",
+      image: "/images/Technical-Security-1.jpg", // 🖼️ Replace with your image
+      bgGradient: "from-pink-700 to-purple-900",
+    },
+    {
+      id: "digital-marketing",
+      title: "Digital Marketing",
+      description: [
+        "Social Media Marketing",
+        "Digital Advertising",
+        "Media planning & buying",
+        "Email Marketing",
+      ],
+      image: "/images/digotal-marketing.jpg", // 🖼️ Replace with your image
+      bgGradient: "from-pink-700 to-purple-900",
     },
     {
       id: "cloud-services",
@@ -47,8 +60,8 @@ export default function Services() {
         "Cloud Hosting",
         "Cloud-Based ERP/CRM",
       ],
-      image: "/images/cloud.jpg", // 🖼️ Replace with your image
-      bgGradient: "from-indigo-800 to-cyan-900",
+      image: "/images/cloud-internetdienste_blue_planet_studio_adobestock_362316663_1545px.jpg", // 🖼️ Replace with your image
+      bgGradient: "from-pink-700 to-purple-900",
     },
     {
       id: "collaboration-system",
@@ -59,7 +72,7 @@ export default function Services() {
         "Radio Communications Systems",
       ],
       image: "/images/Collaboration-system.jpg", // 🖼️ Replace with your image
-      bgGradient: "from-teal-700 to-sky-900",
+      bgGradient: "from-pink-700 to-purple-900",
     },
   ];
 
@@ -69,11 +82,11 @@ export default function Services() {
     <section className="services relative bg-red-400">
       <div className="flex flex-col relative">
         {/* Top Part */}
-        <section className="services-top relative body-padding flex flex-col service-background-imag bg-cover bg-center bg-no-repeat"
+        <section className="services-top relative body-padding flex flex-col service-background-imag bg-cover bg-center bg-no-repeat py-4"
           style={{ backgroundImage: "url('/images/background-1.png')", backgroundSize:"cover", backgroundPosition:"center", filter:"none", backdropFilter:"none" }} >
           <div className="body-padding">
             {/* Header section */}
-            <div className="header-section">
+            <div className="header-section gap-3 flex flex-col">
               <h1 className="header">Services we offer</h1>
               <p className="header-subtext">
                 We offer a wide range of specialized services Designed to meet
@@ -83,16 +96,16 @@ export default function Services() {
             </div>
 
             {/* Interactive Services Section */}
-            <div className="flex flex-col lg:flex-row gap-8 mt-10">
+            <div className="flex flex-col lg:flex-row gap-10 mt-10">
 
               {/* LEFT: Service List */}
               <div className="flex flex-col gap-4 w-full lg:w-1/3">
                 {services.map((service) => (
-                  <div key={service.id} onMouseEnter={() => setActiveService(service)} className={`cursor-pointer px-4 py-3 border-2 rounded-md transition-all duration-300 ease-in-out service-lists
+                  <div key={service.id} onMouseEnter={() => setActiveService(service)} className={`cursor-pointer px-4 py-4 border-2 rounded-md transition-all duration-300 ease-in-out service-lists
                       ${
                         activeService.id === service.id
-                          ? "bg-red-600 text-white border-red-600"
-                          : "bg-white text-black border-gray-200 hover:bg-red-100"
+                          ? "bg-[#be1219] text-white border-[#be1219]"
+                          : "bg-white text-black border-gray-200 hover:bg-[#be1219]"
                       }`}
                   >
                     <h3 className="">{service.title}</h3>
@@ -101,7 +114,7 @@ export default function Services() {
               </div>
 
               {/* RIGHT: Info Card */}
-              <div className="relative flex w-full lg:w-2/3 min-h-[320px] h-[380px] rounded-xl overflow-hidden shadow-lg transition-all duration-500">
+              <div className="relative mt-8 flex w-full lg:w-2/3 min-h-[320px] h-[500px] rounded-xl overflow-hidden shadow-lg transition-all duration-500 px-5">
                 {/* Background image + gradient */}
                 <div
                   key={activeService.id}
@@ -124,9 +137,9 @@ export default function Services() {
                       <li key={idx}>{item}</li>
                     ))}
                   </ul>
-                  <button className="mt-4 px-4 w-fit py-2 bg-blue-600 hover:bg-blue-700 rounded">
+                  <a className="" id="shrink-hover" href="#">
                     Explore More →
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

@@ -47,7 +47,7 @@ export default function Navbar() {
         </div>
       </section>
 
-      {/* Right Side */}
+      {/* Bottom Section */}
       <section className="max-w-full">
         <div className="flex justify-between items-center text-[#0a4da9] body-padding py-2">
           {/* Logo */}
@@ -65,15 +65,15 @@ export default function Navbar() {
             {/* make this wrapper positioned so dropdowns can be centered relative to it */}
             <div className="relative">
               <ul className="hidden md:flex space-x-3 ">
-                <li className="hover:cursor-pointer nav-link-custom ">
+                <li className="nav-link-custom ">
                   <Link href="/">Home</Link>
                 </li>
                 {/* ABOUT US DROPDOWN */}
-                <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter("about")} onMouseLeave={handleMouseLeave}>
-                  <button className="hover:text-red-500 flex items-center nav-link-custom gap-1">
+                <li className="relative nav-link-custom" onMouseEnter={() => handleMouseEnter("about")} onMouseLeave={handleMouseLeave}>
+                  <Link className="flex items-center gap-1" href="/">
                     About Us
                     <ChevronDown />
-                  </button>
+                  </Link>
                   {activeMenu === "about" && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-72 py-4 transition-all duration-300 ease-out bg-white opacity-100 translate-y-2 animate-slideDown">
                       {aboutLinks.map((item) => (
@@ -91,10 +91,10 @@ export default function Navbar() {
                 </li>
                 {/* SERVICES MEGA MENU */}
                 <li className="nav-link-custom cursor-pointer" onMouseEnter={() => handleMouseEnter("services")} onMouseLeave={handleMouseLeave}>
-                  <button className="hover:text-red-500 nav-link-custom flex items-center gap-1">
+                  <Link className="hover:text-red-500 nav-link-custom flex items-center gap-1" href="/">
                     Services
                     <ChevronDown />
-                  </button>
+                  </Link>
                   {activeMenu === "services" && (
                     <>
                       <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg transition-all duration-300 ease-out rounded-md w-[92vw] max-w-[1100px] py-6 px-6">
@@ -125,11 +125,11 @@ export default function Navbar() {
                 </li>
 
                 {/* Case Study dropdown */}
-                <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter('case')} onMouseLeave={handleMouseLeave}>
-                  <button className="hover:text-red-500 flex items-center gap-1 cursor-pointer">
+                <li className="relative nav-link-custom" onMouseEnter={() => handleMouseEnter('case')} onMouseLeave={handleMouseLeave}>
+                  <Link className="flex items-center gap-1 cursor-pointer" href="/">
                     Case Study
                     <ChevronDown />
-                  </button>
+                  </Link>
                   {activeMenu === 'case' && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-64 py-3 bg-white">
                       {caseStudyLinks.map((it) => (
@@ -140,7 +140,7 @@ export default function Navbar() {
                 </li>
 
                 {/* Products dropdown */}
-                <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter('products')} onMouseLeave={handleMouseLeave}>
+                <li className="relative nav-link-custom" onMouseEnter={() => handleMouseEnter('products')} onMouseLeave={handleMouseLeave}>
                   <button className="hover:text-red-500 flex items-center gap-1">
                     Products 
                     <ChevronDown />
@@ -171,12 +171,12 @@ export default function Navbar() {
             </div>
 
             <div className="flex gap-2 items-center">
-              <button aria-label="search" className="text-black p-2">
+              <a aria-label="search" className="text-black p-2">
                 <Search className="text-black w-5 h-6"/>
-              </button>
-              <Link href="/contact" className='text-white hover:bg-black hover:cursor-pointer bg-red-600 p-3 rounded-sm btn-red'>
+              </a>
+              <a href="/contact" className='text-white hover:bg-black hover:cursor-pointer bg-red-600 p-3 rounded-sm btn-red'>
                 Get in touch
-              </Link>
+              </a>
             </div>
           </div>
         </div>
