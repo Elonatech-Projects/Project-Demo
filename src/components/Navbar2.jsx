@@ -114,7 +114,7 @@ export default function Navbar() {
                                   <li key={link.text}>
                                     <Link
                                       href={link.href}
-                                      className="text-sm text-gray-600 hover:text-red-500"
+                                      className="text-sm text-gray-600 hover:text-[#0a2868]"
                                     >
                                       {link.text}
                                     </Link>
