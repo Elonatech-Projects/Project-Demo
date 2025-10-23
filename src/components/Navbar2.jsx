@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import "./styles/styles.css";
-import { ChevronDown, Facebook, Instagram, Linkedin, Mail, Phone, Search, Twitter } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, Linkedin, Mail, Phone, Search, Twitter, X } from "lucide-react";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -11,39 +11,44 @@ export default function Navbar() {
   const handleMouseEnter = (menu) => setActiveMenu(menu);
   const handleMouseLeave = () => setActiveMenu(null);
   const toggleMobile = () => setMobileOpen((s) => !s);
+  const [showSearch, setShowSearch] = useState(false);
   return (
     <nav className="bg-white shadow-md relative z-50 nav-section">
       {/* Top Bar */}
       <section className="nav-header py-[1vh]">
-        <div className="flex justify-between py-3 body-padding">
-          {/* Social Links */}
-          <div className="flex nav-social-links">
-            <ul className="flex items-center space-x-4 text-sm px-6">
-              <li className="hover:cursor-pointer nav-social border">
-                <Facebook className="nav-icons left-icons" />
-              </li>
-              <li className="hover:cursor-pointer nav-social border">
-                <Twitter className="nav-icons left-icons"/>
-              </li>
-              <li className="hover:cursor-pointer nav-social border">
-                <Linkedin className="nav-icons left-icons"/>
-              </li>
-              <li className="hover:cursor-pointer nav-social border">
-                <Instagram className="nav-icons left-icons"/>
-              </li>
-            </ul>
-          </div>
-          {/* Right Side */}
-          <div className="flex gap-2 social-right text-[12px]">
-            <a className="btn-navlink flex items-center gap-2 bg-[#1f44b4] text-white rounded-sm" href="tel:+2349167716220">
-              <Phone className="nav-icons" />
-              <span>tel:+2349167716220</span>
-            </a>
-            <a className="btn-navlink flex items-center gap-2 bg-[#1f44b4] text-white rounded-sm" href="mailto:info@speedlinkng.com">
-              <Mail className="nav-icons" />
-              <span>info@speedlinkng.com</span>
-            </a>
-          </div>
+        <div className="py-3 body-padding">
+          <section className="flex justify-between">
+            {/* Left-side */}
+            {/* Social Links */}
+            <div className="flex nav-social-links">
+              <ul className="flex items-center space-x-4 text-sm px-6">
+                <li className="hover:cursor-pointer nav-social">
+                  <Facebook id="nav-icons" />
+                </li>
+                <li className="hover:cursor-pointer nav-social">
+                  <Twitter id="nav-icons"/>
+                </li>
+                <li className="hover:cursor-pointer nav-social">
+                  <Linkedin id="nav-icons"/>
+                </li>
+                <li className="hover:cursor-pointer nav-social">
+                  <Instagram id="nav-icons"/>
+                </li>
+              </ul>
+            </div>
+
+            {/* Right Side */}
+            <div className="flex gap-2 social-right text-[12px]">
+              <a className="btn-navlink flex items-center gap-2 bg-[#1f44b4] text-white rounded-sm" href="tel:+2349167716220">
+                <Phone className="nav-icons" />
+                <p>tel: +2349167716220</p>
+              </a>
+              <a className="btn-navlink flex items-center gap-2 bg-[#1f44b4] text-white rounded-sm" href="mailto:info@speedlinkng.com">
+                <Mail className="nav-icons" />
+                <span>info@speedlinkng.com</span>
+              </a>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -69,13 +74,13 @@ export default function Navbar() {
                   <Link href="/">Home</Link>
                 </li>
                 {/* ABOUT US DROPDOWN */}
-                <li className="relative nav-link-custom" onMouseEnter={() => handleMouseEnter("about")} onMouseLeave={handleMouseLeave}>
-                  <Link className="flex items-center gap-1" href="/">
+                <li className="nav-link-custom" onMouseEnter={() => handleMouseEnter("about")} onMouseLeave={handleMouseLeave}>
+                  <Link className="flex items-center gap-1 nav-link-custom" href="/">
                     About Us
                     <ChevronDown />
                   </Link>
                   {activeMenu === "about" && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 shadow-lg rounded-md w-72 py-4 transition-all duration-300 ease-out bg-white opacity-100 translate-y-2 animate-slideDown">
+                    <div className="absolute top-full left-full -translate-x-1/2 shadow-lg max-w-[900px] rounded-md w-72 py-4 transition-all duration-300 ease-out bg-white opacity-100 translate-y-2 animate-slideDown">
                       {aboutLinks.map((item) => (
                         <Link
                           key={item.title}
@@ -91,13 +96,13 @@ export default function Navbar() {
                 </li>
                 {/* SERVICES MEGA MENU */}
                 <li className="nav-link-custom cursor-pointer" onMouseEnter={() => handleMouseEnter("services")} onMouseLeave={handleMouseLeave}>
-                  <Link className="hover:text-red-500 nav-link-custom flex items-center gap-1" href="/">
+                  <Link className="nav-link-custom flex items-center gap-1" href="/">
                     Services
                     <ChevronDown />
                   </Link>
                   {activeMenu === "services" && (
                     <>
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg transition-all duration-300 ease-out rounded-md w-[92vw] max-w-[1100px] py-6 px-6">
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-lg transition-all duration-300 ease-out rounded-md w-[92vw] max-w-[900px] py-6 px-6">
                         <div className="grid grid-cols-3 gap-6">
                           {serviceCategories.map((category) => (
                             <div key={category.title}>
@@ -141,7 +146,7 @@ export default function Navbar() {
 
                 {/* Products dropdown */}
                 <li className="relative nav-link-custom" onMouseEnter={() => handleMouseEnter('products')} onMouseLeave={handleMouseLeave}>
-                  <button className="hover:text-red-500 flex items-center gap-1">
+                  <button className="hover:text-[#0a2868] flex items-center gap-1">
                     Products 
                     <ChevronDown />
                   </button>
@@ -156,7 +161,8 @@ export default function Navbar() {
 
                 {/* Resources dropdown */}
                 <li className="cursor-pointer relative nav-link-custom" onMouseEnter={() => handleMouseEnter('resources')} onMouseLeave={handleMouseLeave}>
-                  <button className="hover:text-red-500 flex items-center gap-1">Resources
+                  <button className="hover:text-[#0a2868] flex items-center gap-1">
+                    Resources
                     <ChevronDown />
                   </button>
                   {activeMenu === 'resources' && (
@@ -171,9 +177,18 @@ export default function Navbar() {
             </div>
 
             <div className="flex gap-2 items-center">
-              <a aria-label="search" className="text-black p-2">
-                <Search className="text-black w-5 h-6"/>
+              <a aria-label="search" className="text-black p-2"
+              onClick={()=>setShowSearch(true)}>
+                <Search className="text-black w-5 h-6 cursor-pointer"/>
               </a>
+              {showSearch && (
+                <div id="searchOverlay">
+                  <div className="search-box">
+                    <input type="text" placeholder="Search ..." autoFocus/>
+                    <button onClick={() => setShowSearch(false)} className="close-btn" aria-label="close search"><X size="28"/></button>
+                  </div>
+                </div>
+              )}
               <a href="/contact" className='text-white hover:bg-black hover:cursor-pointer bg-red-600 p-3 rounded-sm btn-red'>
                 Get in touch
               </a>
