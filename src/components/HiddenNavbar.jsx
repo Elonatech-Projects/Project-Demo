@@ -22,10 +22,19 @@ const HiddenNavbar = () => {
   // Show navbar on scroll up, hide on scroll down
   useEffect(() => {
     let lastScrollY = window.scrollY;
-    
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsVisible(currentScrollY < lastScrollY || currentScrollY === 0);
+      const halfViewport = window.innerHeight / 2; // start showing only after user scrolls past 50% of viewport
+
+      if (currentScrollY <= halfViewport) {
+        // before 50% viewport, keep hidden
+        setIsVisible(false);
+      } else {
+        // after 50% viewport: show on scroll up, hide on scroll down
+        setIsVisible(currentScrollY < lastScrollY);
+      }
+
       lastScrollY = currentScrollY;
     };
 
