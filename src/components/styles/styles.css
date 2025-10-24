@@ -2,55 +2,196 @@
     border
 } */
 .body-padding{
-    padding: 0 10%;
+    padding: 0 14%;
+}
+.nav-padding{
+    padding: 0 12%;
 }
 
-.nav-section{
+.nav-section {
+  /* ======================== NAV LINKS ======================== */
+  .nav-links-section {
+    .nav-link-custom {
+      position: relative;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 35.14px;
+      color: #0a2868;
+      transition: all 0.3s ease;
 
-    /* Bottom Section */
-    .nav-links-section{
-        .nav-link-custom {
-            position: relative;
-            font-family: "Open Sans", sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 35.14px;
-            /* text-align: center; */
-            /* display: inline-block; */
-            /* padding: 10px 20px; */
-            /* cursor: pointer; */
-            /* background-color: black; */
-            color: #0a2868;
-            /* background-color: black; */
-        }  
-        .nav-link-custom::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 1px;
-            width: 0;
-            background-color: red;
-            transition: width 0.4s ease;
-            }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background-color: red;
+        transition: width 0.4s ease;
+      }
 
-            /* animate it on hover */
-            .nav-link-custom:hover::before {
-            width: 100%;
+      &:hover {
+        cursor: pointer;
+        color: #ee4e51;
+
+        &::before {
+          width: 100%;
         }
-        .nav-link-custom:hover{
-            cursor: pointer;
-            color: #0a2868;
+      }
+    }
+
+    /* ======================== GROUP HOVER SYNC ======================== */
+    .group:hover {
+      .nav-link-custom::before {
+        width: 100%;
+      }
+
+      #dropdown-menu::before {
+        width: 100%;
+      }
+    }
+
+   
+
+    /* ======================== DROPDOWN STYLING ======================== */
+    #dropdown-menu {
+      position: relative;
+      background-color: white;
+      opacity: 0;
+      transform: translateY(10px);
+      visibility: hidden;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(10, 40, 104, 0.15);
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background-color: red;
+        transition: width 0.4s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+
+  /* ======================== BOTTOM SECTION ======================== */
+  .bottom-section {
+    li {
+      color: #0a2868;
+    }
+
+    .services-category {
+      background-color: inherit;
+      padding: 1rem;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
+
+      h3 {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.83);
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        li {
+          color: grey;
+          font-size: 12px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+            color: #b41e24;
+            transform: scale(1.05);
+          }
         }
-    }    
+      }
+    }
+
+    #dropdown-menu {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background-color: red;
+        transition: width 0.4s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
 }
+
+.nav-links-section {
+  .bottom-section {
+    #dropdown-menu {
+      opacity: 0;
+      transform: translateY(20px);
+      visibility: hidden;
+      transition: all 0.35s ease;
+    }
+
+    /* When parent <li> is hovered */
+    li:hover #dropdown-menu,
+    .group:hover #dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* starts slightly below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* moves up into place */
+  }
+}
+
+/* Apply animation to class and ID */
+#Slide-up.animate-slideup {
+  animation: slideUp 0.3s ease-out forwards;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+
 
 .btn-red{
-    background-color: red;
+    background-color: #b41e24;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
     border-radius: 7px;
+    gap: 10px;
     color: white;
     text-align: center;
-    padding: 10px 30px;
+    padding: 15px 30px;
 }
 .btn-red:hover{
     background-color: black;
@@ -137,6 +278,8 @@
 }
 .pearson-vue{
     border-radius: 10%;
+    /* width: 200px;
+    height: 150px; */
 }
 
 
@@ -416,10 +559,11 @@
 #shrink-hover {
   /* display: inline-block;       */
   transition: transform 0.3s ease, background-color 0.3s ease;
-  background-color: #288dc2;  
+  background-color: #329cce;  
   color: white;
   display: flex;
   padding: 16px;
+  /* background:; */
   align-items: center;
   border-radius: 4px;
   gap: 4px;
@@ -430,8 +574,8 @@
 
 /* Shrink slightly when hovered */
 #shrink-hover:hover {
-  transform: scale(0.90);      /* makes it shrink a bit */
-  background-color: #1f9aa8;   /* optional: darker shade on hover */
+  transform: scale(0.95);      /* makes it shrink a bit */
+  background-color: #329cce99;   /* optional: darker shade on hover */
 }
 
 #about-link {
@@ -439,9 +583,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #ef4444; /* base red */
+  background-color: #b41e24; /* base red */
   color: white;
-  padding: 30px 20px;
+  padding: 30px 25px;
   margin-top: 1.25rem;
   max-width: fit-content;
   border: none;
@@ -449,7 +593,7 @@
   border-radius: 4px;
   overflow: hidden; /* important for animation containment */
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.5s ease;
 }
 
 /* Create a pseudo-element that will hold the animated blue overlay */
@@ -492,7 +636,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 25%;
+  height: 21%;
   background-color: rgba(20, 20, 20, 0.85); /* translucent grey overlay */
   backdrop-filter: blur(1px);
   display: flex;
@@ -544,4 +688,15 @@
   to {
     opacity: 1;
   }
+}
+
+.hidden-navbar {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hidden-navbar.visible {
+  transform: translateY(0);
+  opacity: 1;
 }

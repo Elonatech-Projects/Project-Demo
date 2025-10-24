@@ -22,7 +22,7 @@ export default function HeroSection() {
 	}, []);
 
 	return (
-		<section className="min-h-[50vh]">
+		<section className="min-h-[50vh]" id="#hero">
 			<div className=" flex flex-col">
 				{/* Major Video Background */}
 				<section className="relative h-[90vh] flex justify-center items-center video-play text-white overflow-hidden">
@@ -38,7 +38,7 @@ export default function HeroSection() {
 						Your browser does not support the video tag.
 					</video>
 
-					<div className="absolute top-0 left-0 w-full h-full bg-[#003366]/80 z-[1]"></div>
+					<div className="absolute top-0 left-0 w-full h-full bg-[#03155a]/80 z-[1]"></div>
 
 
 					{/* Content over video */}
@@ -70,7 +70,7 @@ export default function HeroSection() {
 							<p className="text-red-500 font-bold">SPEEDLINK HI-TECH SOLUTIONS LIMITED</p>
 							<h1 className="hero-header-text">A Complete Solution IT Provider</h1>
 							<p className="hero-subtext">Speedlink Hi-Tech Solutions Limited is a Nigerian leading IT systems <br/> provider, known for providing clients with Enterprise world-class <br/> solutions addressing their local business needs. We deliver positive, <br/> rapid and the best return on investment “ROI” solutions for our <br/>customers.</p>
-							<a href="#about" id="about-link">
+							<a href="#about" id="about-link" className="btn-red">
 								<p>Who we are</p> 
 								<Send />
 							</a>
@@ -85,16 +85,19 @@ export default function HeroSection() {
 				</section>
 
 				{/* Bottom side */}
-				<section className="bg-white body-padding my-4">
-					<div className="flex justify-between items-center bg-[#314288] text-white py-10 my-8 h-2/5 px-3">
+				<section className="bg-white body-padding my-10">
+					<div className="flex justify-between items-center bg-[#314288] text-white py-5 my-auto h-2/5 px-1">
 						{/* Image */}
 						<div className="flex items-center w-1/4 justify-center">
 							<img src="/images/pearson-vue-1.gif" className="pearson-vue" alt="Pearson vue" />
 						</div>
 						{/* Center */}
 						<div className="flex flex-col gap-3 w-1/2 justify-start">
-							<h2 className="font-bold text-[25px] text-center self-start">Pursue Your Certification Dreams with Speedlink!</h2>
-							<p className="text-[17px] font-normal text-left">We&apos;re excited to announce that we&apos;re now an official Pearson VUE testing center! <br/> Schedule your exam today and unlock your full potential</p>
+							<h2 className="font-bold text-[20px] text-center self-start">Pursue Your Certification Dreams with Speedlink!</h2>
+							<p className="text-[15px] font-normal text-left">We&apos;re excited to announce that we&apos;re now an official Pearson VUE testing center! 
+							</p>
+							<p> Schedule your exam today and unlock your full potential
+							</p>
 						</div>
 						<div className="flex justify-center w-1/4 px-4">
 							<a className="btn-red" href="#certification">
